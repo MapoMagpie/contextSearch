@@ -306,6 +306,14 @@
 		"message": "在上下文菜单列表中显示图标",
 		"hash": "7036d3e65d70351c41dfa59e397121b3"
 	},
+	"headerPageAction": {
+		"message": "地址栏图标",
+		"hash": "f9ddfbb554166db2a3c899cba7e7fe66"
+	},
+	"displayPageAction": {
+		"message": "在地址栏中显示添加搜索引擎的图标",
+		"hash": "6729cc71f5d148666f5d390030f5c155"
+	},
 	"displayExifSummary": {
 		"message": "摘要",
 		"hash": "632626a730da62a89a4d124241e77273"

@@ -230,6 +230,12 @@
     "displayFavicons": {
         "message": "Display favicons in context menu list"
     },
+    "headerPageAction": {
+        "message": "Page Action Icon in Address Bar"
+    },
+    "displayPageAction": {
+        "message": "Display \"Add search engine to Context Search\" icon in Address Bar"
+    },
     "displayExifSummary": {
         "message": "Summary"
     },

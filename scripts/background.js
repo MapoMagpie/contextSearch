@@ -87,6 +87,7 @@ let contextsearch_makeNewTabOrWindowActive = false;
 let contextsearch_openSearchResultsInNewWindow = false;
 let contextsearch_openSearchResultsInSidebar = false;
 let contextsearch_displayFavicons = true;
+let contextsearch_displayPageAction = true;
 let contextsearch_quickIconGrid = false;
 let contextsearch_closeGridOnMouseOut = true;
 let contextsearch_offsetX = 12;
@@ -108,6 +109,7 @@ const defaultOptions = {
     lastTab: contextsearch_openSearchResultsInLastTab,
     optionsMenuLocation: contextsearch_optionsMenuLocation,
     displayFavicons: contextsearch_displayFavicons,
+    displayPageAction: contextsearch_displayPageAction,
     quickIconGrid: contextsearch_quickIconGrid,
     closeGridOnMouseOut: contextsearch_closeGridOnMouseOut,
     offsetX: contextsearch_offsetX,
@@ -340,6 +342,12 @@ async function handleUpdateDisplayFavicons(data) {
     await setOptions(options, true, true);
 }
 
+async function handleUpdateDisplayPageAction(data) {
+    let options = await getOptions();
+    options.displayPageAction = data.displayPageAction;
+    await setOptions(options, true, true);
+}
+
 async function handleUpdateQuickIconGrid(data) {
     let options = await getOptions();
     options.quickIconGrid = data.quickIconGrid;
@@ -501,6 +509,9 @@ browser.runtime.onMessage.addListener((message, sender) => {
             break;
         case 'updateDisplayFavicons':
             handleUpdateDisplayFavicons(data);
+            break;
+        case 'updateDisplayPageAction':
+            handleUpdateDisplayPageAction(data);
             break;
         case 'updateQuickIconGrid':
             handleUpdateQuickIconGrid(data);

@@ -58,6 +58,7 @@ const privacy = document.getElementById('privacy');
 const lastTab = document.getElementById('lastTab');
 const optionsMenuLocation = document.getElementById('optionsMenuLocation');
 const displayFavicons = document.getElementById('displayFavicons');
+const displayPageAction = document.getElementById('displayPageAction');
 const quickIconGrid = document.getElementById('quickIconGrid');
 const closeGridOnMouseOut = document.getElementById('closeGridOnMouseOut');
 const xOffset = document.getElementById('xOffset');
@@ -112,6 +113,7 @@ browser.permissions.onRemoved.addListener(handlePermissionsChanges);
 // Options changes event handlers
 exactMatch.addEventListener('click', updateSearchOptions);
 displayFavicons.addEventListener('click', updateDisplayFavicons);
+displayPageAction.addEventListener('click', updateDisplayPageAction);
 quickIconGrid.addEventListener('click', updateQuickIconGrid);
 closeGridOnMouseOut.addEventListener('click', updateCloseGridOnMouseOut);
 xOffset.addEventListener('change', updateXOffset);
@@ -1622,6 +1624,12 @@ async function setOptions(options) {
         displayFavicons.checked = true;
     }
 
+    if (options.displayPageAction === false) {
+        displayPageAction.checked = false;
+    } else {
+        displayPageAction.checked = true;
+    }
+
     // Options for the Icons Grid
     quickIconGrid.checked = options.quickIconGrid;
     closeGridOnMouseOut.checked = options.closeGridOnMouseOut;
@@ -1761,6 +1769,10 @@ function updateMultiMode() {
 function updateDisplayFavicons() {
     let fav = displayFavicons.checked;
     sendMessage('updateDisplayFavicons', { displayFavicons: fav });
+}
+
+function updateDisplayPageAction() {
+    sendMessage('updateDisplayPageAction', { displayPageAction: displayPageAction.checked });
 }
 
 function updateQuickIconGrid() {

@@ -233,7 +233,7 @@ async function init() {
     const linkElement = document.querySelector('link[type="application/opensearchdescription+xml"]');
     const isLinkElement = linkElement instanceof HTMLLinkElement;
 
-    if (isLinkElement) {
+    if (isLinkElement && options?.displayPageAction) {
         await sendMessage('showPageAction', null);
     } else {
         await sendMessage('hidePageAction', null);
